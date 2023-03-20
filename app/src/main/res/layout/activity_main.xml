@@ -9,11 +9,12 @@
     <androidx.fragment.app.FragmentContainerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/loginFragment"
-        android:name="com.example.groceryapp.view.fragments.LoginFragment"
+        android:id="@+id/splashFragment"
+        android:name="com.example.groceryapp.view.fragments.SplashFragment"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:context=".view.fragments.LoginFragment"/>
+        tools:context=".view.fragments.SplashFragment"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

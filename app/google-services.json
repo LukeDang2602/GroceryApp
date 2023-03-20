@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "203275763778",
+    "firebase_url": "https://kotlinapp-3b7c4-default-rtdb.firebaseio.com",
+    "project_id": "kotlinapp-3b7c4",
+    "storage_bucket": "kotlinapp-3b7c4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:203275763778:android:1152f6c560284c2c606ddb",
+        "android_client_info": {
+          "package_name": "com.example.firebasedemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "203275763778-pr326a4a7dnmu5udgnlbad5qjot70f3p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjR_HlKIteXtE02Nj4yj_bpJR6WaGXUSk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "203275763778-pr326a4a7dnmu5udgnlbad5qjot70f3p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:203275763778:android:fcc1339275634ba2606ddb",
+        "android_client_info": {
+          "package_name": "com.example.groceryapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "203275763778-pr326a4a7dnmu5udgnlbad5qjot70f3p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjR_HlKIteXtE02Nj4yj_bpJR6WaGXUSk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "203275763778-pr326a4a7dnmu5udgnlbad5qjot70f3p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:203275763778:android:4ff6976aad2dc9db606ddb",
+        "android_client_info": {
+          "package_name": "com.example.whatsappfeatureapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "203275763778-pr326a4a7dnmu5udgnlbad5qjot70f3p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjR_HlKIteXtE02Nj4yj_bpJR6WaGXUSk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "203275763778-pr326a4a7dnmu5udgnlbad5qjot70f3p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

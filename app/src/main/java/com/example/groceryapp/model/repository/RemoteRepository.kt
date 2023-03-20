@@ -1,26 +1,23 @@
 package com.example.groceryapp.model.repository
 
-import androidx.lifecycle.MutableLiveData
 import com.example.groceryapp.model.remote.APIService
-import com.example.groceryapp.model.remote.datamodel.RegisterData
+import com.example.groceryapp.model.remote.datamodel.registration.RegisterData
 import com.example.groceryapp.model.remote.RetrofitBuilder
-import com.example.groceryapp.model.remote.datamodel.RegisterResponse
+import com.example.groceryapp.model.remote.datamodel.registration.RegisterResponse
+import com.example.groceryapp.model.remote.datamodel.subcategory.SubCategoryResponse
 import io.reactivex.Observable
 import io.reactivex.Single
 
 class RemoteRepository(
     private val apiService: APIService = RetrofitBuilder.getRetrofit().create(APIService::class.java)
 ) {
-    private lateinit var response: Observable<RegisterResponse>
-    fun registerUser(value: RegisterData?): Observable<RegisterResponse> {
-        if (value != null) {
-            response = apiService.registerUser(
-                value.userName,
-                value.email,
-                value.mobile,
-                value.password
-            )
-        }
-        return response
+    fun registerUser(value: RegisterData?) = value?.let { apiService.registerUser(it) }
+
+    fun getCategories() = apiService.getCategories()
+
+    fun getSubCategories(subId: String) : Single<SubCategoryResponse> {
+        return apiService.getSubCategories(subId)
     }
+
+
 }
