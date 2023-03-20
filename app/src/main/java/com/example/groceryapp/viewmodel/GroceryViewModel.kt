@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.groceryapp.model.remote.datamodel.category.CategoryData
 import com.example.groceryapp.model.remote.datamodel.registration.RegisterData
 import com.example.groceryapp.model.remote.datamodel.registration.RegisterResponse
+import com.example.groceryapp.model.remote.datamodel.subcategory.SubCategoryData
 import com.example.groceryapp.model.repository.Repository
 
 class GroceryViewModel(
@@ -15,6 +16,8 @@ class GroceryViewModel(
 ): AndroidViewModel(application) {
     val registerData: MutableLiveData<RegisterData> = repository.userRegistrationData
     val categories: LiveData<List<CategoryData>> = repository.categories
+    val subcategories: LiveData<List<SubCategoryData>> = repository.subcategories
+    var categoryId: MutableLiveData<Int> = repository.catergoryId
 
     fun registerUser(data: RegisterData){
         registerData.value = data
@@ -30,6 +33,8 @@ class GroceryViewModel(
         repository.getCategories()
     }
 
-
-
+    fun getSubCategories(subId: Int){
+        categoryId.value = subId
+        repository.getSubCategories(subId.toString())
+    }
 }

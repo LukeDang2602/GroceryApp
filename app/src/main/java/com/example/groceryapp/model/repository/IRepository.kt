@@ -11,8 +11,9 @@ import io.reactivex.Single
 interface IRepository {
     fun registerUser()
     fun getCategories()
-    //fun getSubCategories(catId: String): Single<SubCategoryResponse>
+    fun getSubCategories(catId: String)
 
+    val catergoryId: MutableLiveData<Int>
     val userRegistrationData: MutableLiveData<RegisterData>
     val categories: MutableLiveData<List<CategoryData>>
     val subcategories: MutableLiveData<List<SubCategoryData>>

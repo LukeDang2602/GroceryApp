@@ -7,8 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.groceryapp.R
 import com.example.groceryapp.databinding.CategoryItemBinding
 import com.example.groceryapp.model.remote.datamodel.category.CategoryData
+import com.example.groceryapp.viewmodel.GroceryViewModel
 
-class CategoryAdapter(private val categoryList: List<CategoryData>):
+class CategoryAdapter(private val categoryList: List<CategoryData>, private val viewModel: GroceryViewModel):
 RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>(){
     private lateinit var categoryItemBinding: CategoryItemBinding
 
@@ -17,18 +18,22 @@ RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>(){
         categoryItemBinding = DataBindingUtil.inflate(layoutInflater,R.layout.category_item,parent, false)
         return CategoryViewHolder(categoryItemBinding)
     }
-
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-        holder.bind(categoryList[position])
+        holder.apply{
+            val category = categoryList[position]
+            bind(category)
+            itemView.setOnClickListener {
+                viewModel.getSubCategories(category.catId)
+            }
+        }
     }
 
     override fun getItemCount(): Int {
         return categoryList.size
     }
-
     inner class CategoryViewHolder(private val binding: CategoryItemBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(category: CategoryData){
                 binding.category = category
-            }
+        }
     }
 }

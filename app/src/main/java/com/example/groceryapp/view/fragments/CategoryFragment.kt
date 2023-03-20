@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -28,11 +30,13 @@ class CategoryFragment : Fragment() {
         return binding.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpObserver()
         viewModel.getCategories()
     }
+
     private fun initViewModel() {
         val factory = GroceryViewModel(requireActivity().application).createFactory()
         viewModel = ViewModelProvider(this,factory)[GroceryViewModel::class.java]
@@ -40,7 +44,11 @@ class CategoryFragment : Fragment() {
     private fun setUpObserver() {
         viewModel.categories.observe(viewLifecycleOwner){
             if(it == null) return@observe
-            binding.rvCategories.adapter = CategoryAdapter(it)
+            binding.rvCategories.adapter = CategoryAdapter(it,viewModel)
+        }
+
+        viewModel.subcategories.observe(viewLifecycleOwner){
+            Toast.makeText(requireContext(),"Not yet implemented!", Toast.LENGTH_SHORT).show()
         }
     }
 
