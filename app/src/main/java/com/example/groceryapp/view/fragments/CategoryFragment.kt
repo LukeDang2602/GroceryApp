@@ -26,10 +26,9 @@ class CategoryFragment : Fragment() {
     ): View? {
         initViewModel()
         binding = FragmentCategoryBinding.inflate(inflater,container, false)
-        binding.rvCategories.layoutManager = StaggeredGridLayoutManager(2,LinearLayoutManager.VERTICAL)
+        binding.rvCategories.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL, false)
         return binding.root
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -49,6 +48,9 @@ class CategoryFragment : Fragment() {
 
         viewModel.subcategories.observe(viewLifecycleOwner){
             Toast.makeText(requireContext(),"Not yet implemented!", Toast.LENGTH_SHORT).show()
+            when(viewModel.categoryId.value){
+                1 ->{}
+            }
         }
     }
 

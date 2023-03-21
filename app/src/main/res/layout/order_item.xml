@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/_10dp"
+            android:layout_marginTop="@dimen/_5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/orderName">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgCategory"
+                app:srcCompat="@drawable/ic_launcher_background"
+                android:layout_width="@dimen/_40dp"
+                android:layout_height="@dimen/_40dp"
+                android:scaleType="centerCrop" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/chargeAmount"
+            android:text="$00.00"
+            android:textStyle="bold"
+            android:textColor="@color/primary_text_color"
+            android:layout_marginStart="@dimen/_10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/cardView"
+            app:layout_constraintBottom_toTopOf="@id/orderDate"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/orderDate"
+            android:text="date"
+            android:textColor="@color/primary_text_color"
+            android:layout_marginStart="@dimen/_10dp"
+            app:layout_constraintStart_toEndOf="@id/cardView"
+            app:layout_constraintTop_toBottomOf="@id/orderName"
+            app:layout_constraintBottom_toBottomOf="@id/cardView"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/orderName"
+            android:text="Order Number"
+            android:textStyle="bold"
+            android:textColor="@color/primary_text_color"
+            android:layout_marginStart="@dimen/_10dp"
+            app:layout_constraintStart_toEndOf="@id/cardView"
+            app:layout_constraintTop_toTopOf="@id/cardView"
+            app:layout_constraintBottom_toTopOf="@id/orderDate"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/itemCount"
+            android:text="0 items"
+            android:textColor="@color/primary_text_color"
+            android:layout_marginStart="@dimen/_10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/orderName"
+            app:layout_constraintBottom_toBottomOf="@id/cardView"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</layout>

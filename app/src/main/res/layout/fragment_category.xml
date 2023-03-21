@@ -9,15 +9,94 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/topLine"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.1"/>
 
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/leftLine"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rightLine"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95"/>
+
+        <TextView
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="wrap_content"
+            android:text="Good morning"
+            android:textSize="@dimen/_15dp"
+            android:id="@+id/goodMorningText"
+            app:layout_constraintTop_toBottomOf="@id/topLine"
+            app:layout_constraintStart_toEndOf="@id/leftLine"/>
+
+        <TextView
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10dp"
+            android:id="@+id/letsOrderText"
+            android:text="@string/letsOrder"
+            android:textStyle="bold"
+            android:textColor="@color/primary_text_color"
+            android:textSize="@dimen/_30dp"
+            app:layout_constraintTop_toBottomOf="@id/goodMorningText"
+            app:layout_constraintStart_toEndOf="@id/leftLine"
+            app:layout_constraintEnd_toStartOf="@id/rightLine"
+            app:layout_constraintBottom_toTopOf="@id/categoriesTitle"/>
+
+        <TextView
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/categoriesTitle"
+            android:text="Categories"
+            android:textSize="@dimen/_20dp"
+            android:layout_marginTop="45dp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_text_color"
+            app:layout_constraintTop_toBottomOf="@id/letsOrderText"
+            app:layout_constraintStart_toStartOf="@id/leftLine"
+            app:layout_constraintBottom_toTopOf="@id/rvCategories"/>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvCategories"
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10dp"
+            android:layout_marginBottom="@dimen/_10dp"
+            app:layout_constraintTop_toBottomOf="@id/categoriesTitle"
+            app:layout_constraintStart_toEndOf="@id/leftLine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/orderTitle"/>
+
+        <TextView
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/orderTitle"
+            android:layout_marginTop="@dimen/_10dp"
+            android:text="My Orders"
+            android:textSize="@dimen/_20dp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_text_color"
+            app:layout_constraintTop_toBottomOf="@id/rvCategories"
+            app:layout_constraintStart_toStartOf="@id/leftLine"
+            app:layout_constraintBottom_toTopOf="@id/rvOrders"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvOrders"
+            android:layout_width="@dimen/_0dp"
             android:layout_height="@dimen/_0dp"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_margin="@dimen/_5dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            android:layout_margin="@dimen/_10dp"
+            app:layout_constraintTop_toBottomOf="@id/orderTitle"
+            app:layout_constraintStart_toEndOf="@id/leftLine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
