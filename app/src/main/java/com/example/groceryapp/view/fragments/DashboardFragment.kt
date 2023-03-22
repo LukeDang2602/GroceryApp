@@ -6,18 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.example.groceryapp.databinding.FragmentCategoryBinding
+import com.example.groceryapp.databinding.FragmentDashboardBinding
 import com.example.groceryapp.model.remote.datamodel.category.CategoryData
+import com.example.groceryapp.view.activities.MainActivity
 import com.example.groceryapp.view.adapters.CategoryAdapter
 import com.example.groceryapp.viewmodel.GroceryViewModel
 import com.example.groceryapp.viewmodel.createFactory
 
-class CategoryFragment : Fragment() {
-    private lateinit var binding: FragmentCategoryBinding
+class DashboardFragment : Fragment() {
+    private lateinit var binding: FragmentDashboardBinding
     private lateinit var viewModel: GroceryViewModel
     private var list: ArrayList<CategoryData> = ArrayList()
     override fun onCreateView(
@@ -25,7 +24,7 @@ class CategoryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         initViewModel()
-        binding = FragmentCategoryBinding.inflate(inflater,container, false)
+        binding = FragmentDashboardBinding.inflate(inflater,container, false)
         binding.rvCategories.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL, false)
         return binding.root
     }
@@ -43,16 +42,16 @@ class CategoryFragment : Fragment() {
     private fun setUpObserver() {
         viewModel.categories.observe(viewLifecycleOwner){
             if(it == null) return@observe
+
             binding.rvCategories.adapter = CategoryAdapter(it,viewModel)
+
         }
 
-        viewModel.subcategories.observe(viewLifecycleOwner){
-            Toast.makeText(requireContext(),"Not yet implemented!", Toast.LENGTH_SHORT).show()
-            when(viewModel.categoryId.value){
-                1 ->{}
+        viewModel.subCategories.apply{
+            observe(viewLifecycleOwner){
+                (activity as MainActivity).openSubProductFragment(it)
             }
         }
     }
-
 
 }

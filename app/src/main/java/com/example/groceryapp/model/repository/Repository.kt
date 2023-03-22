@@ -3,11 +3,9 @@ package com.example.groceryapp.model.repository
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.groceryapp.model.remote.datamodel.category.CategoryData
+import com.example.groceryapp.model.remote.datamodel.product.ProductData
 import com.example.groceryapp.model.remote.datamodel.registration.RegisterData
-import com.example.groceryapp.model.remote.datamodel.registration.RegisterResponse
-import com.example.groceryapp.model.remote.datamodel.subcategory.SubCategoryData
-import com.example.groceryapp.model.remote.datamodel.subcategory.SubCategoryResponse
-import io.reactivex.Single
+import com.example.groceryapp.model.remote.datamodel.subcategories.SubCategoryData
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -18,8 +16,8 @@ class Repository() : IRepository {
 
     override val userRegistrationData = MutableLiveData<RegisterData>()
     override val categories = MutableLiveData<List<CategoryData>>()
-    override val subcategories = MutableLiveData<List<SubCategoryData>>()
-    override val catergoryId = MutableLiveData<Int>()
+    override val subProducts = MutableLiveData<List<ProductData>>()
+    override val subCategories = MutableLiveData<List<SubCategoryData>>()
     override fun registerUser() {
         val disposable = remoteRepository.registerUser(userRegistrationData.value)
             ?.subscribeOn(Schedulers.io())
@@ -48,17 +46,32 @@ class Repository() : IRepository {
                 })
         compositeDisposable.add(disposable)
     }
-
-    override fun getSubCategories(catId: String){
-        val disposable = remoteRepository.getSubCategories(catId)
-            .subscribeOn(Schedulers.io())
+    override fun getSubProducts(subId: String) {
+        val disposable = remoteRepository.getSubProducts(subId)
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                subcategories.value = it.data
-                Log.i("subcat","subcat succeeded")
-            }, {
-                Log.i("subcat", "subcat failed")
-            })
+            .subscribeOn(Schedulers.io())
+            .subscribe({res ->
+                Log.i("subProduct", "subProduct succeeded")
+                subProducts.value = res.data
+            },
+                {
+                    Log.i("subProduct", it.message.toString())
+                })
+        compositeDisposable.add(disposable)
+    }
+
+    override fun getSubCategories(catId: String) {
+        val disposable = remoteRepository.getSubCategories(catId)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribe({res ->
+                Log.i("subCategories", "subCategories succeeded")
+                subCategories.value = res.data
+            },
+                {
+                    Log.i("subCategories", it.message.toString())
+                })
+        compositeDisposable.add(disposable)
     }
 
 

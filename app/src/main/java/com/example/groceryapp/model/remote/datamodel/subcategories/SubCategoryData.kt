@@ -1,4 +1,4 @@
-package com.example.groceryapp.model.remote.datamodel.subcategory
+package com.example.groceryapp.model.remote.datamodel.subcategories
 
 data class SubCategoryData(
     val __v: Int,

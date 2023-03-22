@@ -1,12 +1,15 @@
 package com.example.groceryapp.view.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.groceryapp.R
 import com.example.groceryapp.databinding.CategoryItemBinding
 import com.example.groceryapp.model.remote.datamodel.category.CategoryData
+import com.example.groceryapp.view.fragments.ChickenSubProductFragment
 import com.example.groceryapp.viewmodel.GroceryViewModel
 
 class CategoryAdapter(private val categoryList: List<CategoryData>, private val viewModel: GroceryViewModel):

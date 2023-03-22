@@ -4,11 +4,11 @@ import com.example.groceryapp.model.remote.datamodel.category.CategoryResponse
 import com.example.groceryapp.model.remote.datamodel.product.ProductResponse
 import com.example.groceryapp.model.remote.datamodel.registration.RegisterData
 import com.example.groceryapp.model.remote.datamodel.registration.RegisterResponse
-import com.example.groceryapp.model.remote.datamodel.subcategory.SubCategoryResponse
-import com.example.groceryapp.utils.Constants
+import com.example.groceryapp.model.remote.datamodel.subcategories.SubCategoryResponse
 import com.example.groceryapp.utils.Constants.CATEGORY_ENDPOINT
 import com.example.groceryapp.utils.Constants.REGISTER_ENDPOINT
 import com.example.groceryapp.utils.Constants.SUBCATEGORY_ENDPOINT
+import com.example.groceryapp.utils.Constants.SUBPRODUCT_ENDPOINT
 import io.reactivex.Observable
 import io.reactivex.Single
 import retrofit2.http.Body
@@ -23,7 +23,8 @@ interface APIService {
     @GET(CATEGORY_ENDPOINT)
     fun getCategories(): Single<CategoryResponse>
 
-    @GET("$SUBCATEGORY_ENDPOINT{subId}")
-    fun getSubCategories(@Path("subId") subId: String) : Single<SubCategoryResponse>
-
+    @GET("$SUBCATEGORY_ENDPOINT{catId}")
+    fun getsubCategories(@Path("catId") catId: String): Single<SubCategoryResponse>
+    @GET("$SUBPRODUCT_ENDPOINT{subId}")
+    fun getSubProducts(@Path("subId") subId: String) : Observable<ProductResponse>
 }

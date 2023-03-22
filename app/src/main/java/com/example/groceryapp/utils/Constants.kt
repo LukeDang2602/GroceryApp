@@ -6,6 +6,7 @@ object Constants {
     const val LOGIN_ENDPOINT = "auth/login"
     const val CATEGORY_ENDPOINT = "category"
     const val SUBCATEGORY_ENDPOINT = "subcategory/"
+    const val  SUBPRODUCT_ENDPOINT = "products/sub/"
     const val BASE_IMAGE_URL = "https://rjtmobile.com/grocery/images/"
     const val TOKEN = "token"
 }
