@@ -8,7 +8,10 @@ import com.example.groceryapp.model.remote.datamodel.subcategories.SubCategoryDa
 import com.example.groceryapp.view.fragments.DashboardFragment
 import com.example.groceryapp.view.fragments.LoginFragment
 import com.example.groceryapp.view.fragments.RegisterFragment
-import com.example.groceryapp.view.fragments.ChickenSubProductFragment
+import com.example.groceryapp.view.fragments.subcategories.BeefSubProductFragment
+import com.example.groceryapp.view.fragments.subcategories.ChickenSubProductFragment
+import com.example.groceryapp.view.fragments.subcategories.FruitSubProductFragment
+import com.example.groceryapp.view.fragments.subcategories.VeggiesSubProductFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -38,10 +41,26 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun openSubProductFragment(subCategoryData: List<SubCategoryData>) {
-        fragmentManager.beginTransaction()
-            .replace(R.id.splashFragment,ChickenSubProductFragment(subCategoryData))
-            .addToBackStack(MainActivity.TAG_SUBCATEGORY)
-            .commit()
+        for(data in subCategoryData){
+            when(data.subId){
+                1 -> fragmentManager.beginTransaction()
+                    .replace(R.id.splashFragment, ChickenSubProductFragment(subCategoryData))
+                    .addToBackStack(MainActivity.TAG_SUBCATEGORY)
+                    .commit()
+                2 -> fragmentManager.beginTransaction()
+                    .replace(R.id.splashFragment,VeggiesSubProductFragment(subCategoryData))
+                    .addToBackStack(MainActivity.TAG_SUBCATEGORY)
+                    .commit()
+                3 -> fragmentManager.beginTransaction()
+                    .replace(R.id.splashFragment,FruitSubProductFragment(subCategoryData))
+                    .addToBackStack(MainActivity.TAG_SUBCATEGORY)
+                    .commit()
+                4 -> fragmentManager.beginTransaction()
+                    .replace(R.id.splashFragment,BeefSubProductFragment(subCategoryData))
+                    .addToBackStack(MainActivity.TAG_SUBCATEGORY)
+                    .commit()
+            }
+        }
     }
 
     companion object {

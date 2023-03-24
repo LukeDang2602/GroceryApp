@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.groceryapp.R
-import com.example.groceryapp.databinding.CategoryItemBinding
 import com.example.groceryapp.databinding.ProductItemBinding
 import com.example.groceryapp.model.remote.datamodel.product.ProductData
 import com.example.groceryapp.viewmodel.GroceryViewModel
