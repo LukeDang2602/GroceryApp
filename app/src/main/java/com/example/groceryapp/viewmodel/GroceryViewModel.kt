@@ -18,6 +18,7 @@ class GroceryViewModel(
     val categories: LiveData<List<CategoryData>> = repository.categories
     val subCategories: LiveData<List<SubCategoryData>> = repository.subCategories
     var subProducts: MutableLiveData<List<ProductData>> = repository.subProducts
+    val catProducts: LiveData<List<ProductData>> = repository.catProducts
 
     fun registerUser(data: RegisterData){
         registerData.value = data
@@ -39,5 +40,13 @@ class GroceryViewModel(
 
     fun getSubProducts(subId: Int){
         repository.getSubProducts(subId.toString())
+    }
+
+    fun getCatProducts(catId: String){
+        repository.getCatProducts(catId)
+    }
+
+    fun addItemtoCart(product: ProductData) {
+        TODO("Not yet implemented")
     }
 }

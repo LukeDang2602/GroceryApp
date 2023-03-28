@@ -18,6 +18,8 @@ class Repository() : IRepository {
     override val categories = MutableLiveData<List<CategoryData>>()
     override val subProducts = MutableLiveData<List<ProductData>>()
     override val subCategories = MutableLiveData<List<SubCategoryData>>()
+    override val catProducts = MutableLiveData<List<ProductData>>()
+
     override fun registerUser() {
         val disposable = remoteRepository.registerUser(userRegistrationData.value)
             ?.subscribeOn(Schedulers.io())
@@ -70,6 +72,20 @@ class Repository() : IRepository {
             },
                 {
                     Log.i("subCategories", it.message.toString())
+                })
+        compositeDisposable.add(disposable)
+    }
+
+    override fun getCatProducts(catId: String) {
+        val disposable = remoteRepository.getCatProducts(catId)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribe({res ->
+                Log.i("CatProducts", "CatProducts succeeded")
+                catProducts.value = res.data
+            },
+                {
+                    Log.i("CatCategories", it.message.toString())
                 })
         compositeDisposable.add(disposable)
     }

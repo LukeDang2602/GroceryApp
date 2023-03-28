@@ -9,12 +9,14 @@ import com.example.groceryapp.model.remote.datamodel.subcategories.SubCategoryDa
 interface IRepository {
     fun registerUser()
     fun getCategories()
+    fun getCatProducts(catId: String)
     fun getSubProducts(subId: String)
-
     fun getSubCategories(catId: String)
+
 
     val userRegistrationData: MutableLiveData<RegisterData>
     val categories: MutableLiveData<List<CategoryData>>
     val subCategories: MutableLiveData<List<SubCategoryData>>
     val subProducts: MutableLiveData<List<ProductData>>
+    val catProducts: MutableLiveData<List<ProductData>>
 }

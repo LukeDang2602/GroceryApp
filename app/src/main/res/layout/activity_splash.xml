@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/orange"
+    tools:context=".view.activities.SplashActivity">
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/topLine"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/bottomLine"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/leftLine"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rightLine"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="@dimen/_0dp"
+        android:id="@+id/imageCard"
+        app:layout_constraintTop_toBottomOf="@id/topLine"
+        app:layout_constraintBottom_toTopOf="@id/bottomLine"
+        app:layout_constraintStart_toStartOf="@id/leftLine"
+        app:layout_constraintEnd_toEndOf="@id/rightLine"
+        app:cardElevation="@dimen/_10dp"
+        app:cardCornerRadius="20dp">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/groceryLogo"/>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

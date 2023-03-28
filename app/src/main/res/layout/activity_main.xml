@@ -6,15 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".view.activities.MainActivity">
 
-    <androidx.fragment.app.FragmentContainerView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/splashFragment"
-        android:name="com.example.groceryapp.view.fragments.SplashFragment"
+        android:id="@+id/frameContainer"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:context=".view.fragments.SplashFragment"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="@dimen/_10dp"
+        android:layout_marginHorizontal="@dimen/_10dp"
+        android:elevation="@dimen/_20dp"
+        app:elevation="@dimen/_20dp"
+        android:background="@drawable/bg_bottom_nav_bar"
+        app:itemIconTint="@drawable/bottom_nav_selector"
+        app:itemTextColor="@drawable/bottom_nav_selector"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/menu_bottom_nav"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

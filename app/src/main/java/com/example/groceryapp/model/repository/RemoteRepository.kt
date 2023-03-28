@@ -13,5 +13,7 @@ class RemoteRepository(
 
     fun getSubCategories(catId: String) = apiService.getsubCategories(catId)
 
+    fun getCatProducts(catId: String) = apiService.getCatProducts(catId)
+
     fun getSubProducts(subId: String) = apiService.getSubProducts(subId)
 }

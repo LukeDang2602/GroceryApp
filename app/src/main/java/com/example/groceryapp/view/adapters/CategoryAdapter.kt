@@ -7,9 +7,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.groceryapp.R
 import com.example.groceryapp.databinding.CategoryItemBinding
 import com.example.groceryapp.model.remote.datamodel.category.CategoryData
-import com.example.groceryapp.viewmodel.GroceryViewModel
+import com.example.groceryapp.view.fragments.DashboardFragment
 
-class CategoryAdapter(private val categoryList: List<CategoryData>, private val viewModel: GroceryViewModel):
+class CategoryAdapter(
+    private val categoryList: List<CategoryData>,
+    private val dashboardFragment: DashboardFragment
+):
 RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>(){
     private lateinit var categoryItemBinding: CategoryItemBinding
 
@@ -23,7 +26,7 @@ RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>(){
             val category = categoryList[position]
             bind(category)
             itemView.setOnClickListener {
-                viewModel.getSubCategories(category.catId)
+                dashboardFragment.moveToSubCategories(category.catId, category.catName)
             }
         }
     }
